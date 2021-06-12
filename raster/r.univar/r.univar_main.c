@@ -422,6 +422,7 @@ process_raster(univar_stat * stats, int fd, int fdz, const struct Cell_head *reg
 
 }
 
+#if defined(_OPENMP)
 static void
 process_raster_threaded(univar_stat * stats, char *fname, char *zone_fname, const struct Cell_head *region, const int threads)
 {
@@ -626,3 +627,4 @@ process_raster_threaded(univar_stat * stats, char *fname, char *zone_fname, cons
     if (n_zones)
         G_free(zoneraster_row);
 }
+#endif
